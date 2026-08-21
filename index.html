@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ==========================================================================
+       SEO — troque estas tags quando o domínio/nome final estiver definido.
+       ========================================================================== -->
+  <title>DCodes | Sites que fazem seu negócio vender de verdade</title>
+  <meta
+    name="description"
+    content="A DCodes cria sites institucionais, landing pages e e-commerces rápidos, bonitos e feitos pra converter visitante em cliente. Do briefing ao ar em poucos dias."
+  />
+  <meta name="keywords" content="criação de sites, desenvolvimento web, landing page, e-commerce, site institucional, agência digital" />
+  <meta name="author" content="DCodes" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0a0a12" />
+
+  <!-- Open Graph — controla como o link aparece ao compartilhar no WhatsApp/Instagram/LinkedIn.
+       TROCAR: og:image (crie images/og-image.jpg, 1200x630px) e og:url (domínio final). -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="DCodes | Sites que fazem seu negócio vender de verdade" />
+  <meta
+    property="og:description"
+    content="Sites institucionais, landing pages e e-commerces rápidos, bonitos e feitos pra converter. Do briefing ao ar em poucos dias."
+  />
+  <meta property="og:image" content="images/og-image.jpg" />
+  <meta property="og:url" content="https://www.dcodes.com.br/" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="css/style.css?v=7" />
+</head>
+<body>
+  <a class="pular-conteudo" href="#inicio">Pular para o conteúdo</a>
+
+  <!-- ==========================================================================
+       BARRA DE AVISO — urgência/escassez. TROCAR texto ou remover a seção
+       inteira (e o espaço reservado no header via JS) se não quiser usar.
+       ========================================================================== -->
+  <div class="aviso" id="aviso">
+    <p class="aviso__texto">
+      <strong>Vagas abertas</strong> para novos projetos este mês —
+      <a href="#contato" class="aviso__link">fale com a gente agora</a>
+    </p>
+    <button class="aviso__fechar" id="botaoFecharAviso" aria-label="Fechar aviso">✕</button>
+  </div>
+
+  <!-- ==========================================================================
+       CABEÇALHO / MENU
+       ========================================================================== -->
+  <header class="cabecalho" id="cabecalho">
+    <div class="container cabecalho__conteudo">
+      <a href="#inicio" class="logo" aria-label="DCodes — página inicial">
+        <span class="logo__marca" aria-hidden="true">
+          <svg viewBox="0 0 64 64" width="34" height="34">
+            <defs>
+              <linearGradient id="gradLogo" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#8b5cf6" />
+                <stop offset="0.5" stop-color="#6366f1" />
+                <stop offset="1" stop-color="#22d3ee" />
+              </linearGradient>
+            </defs>
+            <rect width="64" height="64" rx="16" fill="url(#gradLogo)" />
+            <path d="M24 20 L13 32 L24 44" fill="none" stroke="#0a0a12" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M40 20 L51 32 L40 44" fill="none" stroke="#0a0a12" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M35 16 L29 48" fill="none" stroke="#0a0a12" stroke-width="4" stroke-linecap="round" />
+          </svg>
+        </span>
+        <span class="logo__texto">D<span class="logo__destaque">Codes</span></span>
+      </a>
+
+      <nav class="navegacao" id="navegacao" aria-label="Navegação principal">
+        <button class="navegacao__fechar" id="botaoFecharMenu" aria-label="Fechar menu">✕</button>
+        <ul class="navegacao__lista">
+          <li><a href="#inicio" class="navegacao__link">Início</a></li>
+          <li><a href="#servicos" class="navegacao__link">Serviços</a></li>
+          <li><a href="#processo" class="navegacao__link">Processo</a></li>
+          <li><a href="#portfolio" class="navegacao__link">Portfólio</a></li>
+          <li><a href="#planos" class="navegacao__link">Planos</a></li>
+          <li><a href="#faq" class="navegacao__link">FAQ</a></li>
+        </ul>
+        <div class="navegacao__acoes">
+          <a
+            href="https://wa.me/5592992162419?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20um%20or%C3%A7amento."
+            target="_blank"
+            rel="noopener"
+            class="botao botao--primario navegacao__cta"
+          >
+            Fale no WhatsApp
+          </a>
+        </div>
+      </nav>
+
+      <button
+        class="menu-mobile"
+        id="botaoMenuMobile"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+        aria-controls="navegacao"
+      >
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <div class="navegacao__fundo" id="navegacaoFundo" hidden></div>
+
+  <main id="conteudo-principal">
+    <!-- ==========================================================================
+         HERO / INÍCIO
+         ========================================================================== -->
+    <section class="hero" id="inicio">
+      <div class="hero__fundo" aria-hidden="true">
+        <span class="hero__mancha hero__mancha--1"></span>
+        <span class="hero__mancha hero__mancha--2"></span>
+        <span class="hero__mancha hero__mancha--3"></span>
+        <canvas id="heroCanvas" class="hero__canvas"></canvas>
+        <span class="hero__grade"></span>
+      </div>
+
+      <div class="container hero__conteudo">
+        <div class="hero__texto reveal">
+          <p class="etiqueta"><span class="etiqueta__ponto"></span>Agência de desenvolvimento web</p>
+          <h1 class="hero__titulo">
+            Sites que fazem seu negócio <span class="texto-destaque">vender de verdade</span>.
+          </h1>
+          <p class="hero__descricao">
+            Criamos sites institucionais, landing pages e e-commerces rápidos, bonitos
+            e pensados pra converter visitante em cliente — do briefing ao ar em poucos dias.
+          </p>
+          <div class="hero__acoes">
+            <a
+              href="https://wa.me/5592992162419?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20um%20or%C3%A7amento."
+              target="_blank"
+              rel="noopener"
+              class="botao botao--primario botao--grande"
+            >
+              Peça seu orçamento
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            </a>
+            <a href="#portfolio" class="botao botao--fantasma botao--grande">Ver portfólio</a>
+          </div>
+          <p class="hero__nota">Resposta em até 1 dia útil · Sem compromisso</p>
+        </div>
+
+        <div class="hero__vitrine reveal reveal--atraso-1">
+          <div class="mock-navegador mock-navegador--flutuar">
+            <div class="mock-navegador__barra">
+              <span></span><span></span><span></span>
+              <span class="mock-navegador__endereco">seusite.com.br</span>
+            </div>
+            <div class="mock-navegador__corpo">
+              <div class="mock-bloco mock-bloco--nav"></div>
+              <div class="mock-bloco mock-bloco--hero"></div>
+              <div class="mock-linhas">
+                <div class="mock-bloco mock-bloco--card"></div>
+                <div class="mock-bloco mock-bloco--card"></div>
+                <div class="mock-bloco mock-bloco--card"></div>
+              </div>
+            </div>
+          </div>
+          <div class="chip-flutuante chip-flutuante--1">98/100 performance</div>
+          <div class="chip-flutuante chip-flutuante--2">100% responsivo</div>
+          <div class="chip-flutuante chip-flutuante--3">SEO otimizado</div>
+        </div>
+      </div>
+
+      <div class="hero__confianca reveal reveal--atraso-2">
+        <div class="container">
+          <p class="hero__confianca-texto">Negócios de vários segmentos já confiam na DCodes</p>
+          <!-- TROCAR: substitua os selos abaixo por logos reais de clientes quando tiver -->
+          <ul class="marcas" aria-label="Segmentos atendidos">
+            <li class="marcas__item">VAREJO</li>
+            <li class="marcas__item">SAÚDE</li>
+            <li class="marcas__item">EDUCAÇÃO</li>
+            <li class="marcas__item">SERVIÇOS</li>
+            <li class="marcas__item">INDÚSTRIA</li>
+            <li class="marcas__item">STARTUPS</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="divisor-tech" aria-hidden="true"></div>
+
+    <!-- ==========================================================================
+         ESTATÍSTICAS
+         TROCAR: os números abaixo são ilustrativos — ajuste para a realidade
+         do seu negócio antes de publicar.
+         ========================================================================== -->
+    <section class="estatisticas" aria-label="Números da DCodes">
+      <div class="container estatisticas__grade">
+        <div class="estatistica reveal">
+          <span class="estatistica__numero" data-contador="40" data-sufixo="+">0</span>
+          <span class="estatistica__legenda">Projetos entregues</span>
+        </div>
+        <div class="estatistica reveal reveal--atraso-1">
+          <span class="estatistica__numero" data-contador="98" data-sufixo="%">0</span>
+          <span class="estatistica__legenda">Clientes satisfeitos</span>
+        </div>
+        <div class="estatistica reveal reveal--atraso-2">
+          <span class="estatistica__numero" data-contador="10" data-sufixo=" dias">0</span>
+          <span class="estatistica__legenda">Prazo médio de entrega</span>
+        </div>
+        <div class="estatistica reveal reveal--atraso-3">
+          <span class="estatistica__numero" data-contador="24" data-sufixo="/7">0</span>
+          <span class="estatistica__legenda">Suporte após o lançamento</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SERVIÇOS
+         ========================================================================== -->
+    <section class="secao" id="servicos">
+      <div class="container">
+        <div class="secao__cabecalho reveal">
+          <p class="etiqueta etiqueta--centro"><span class="etiqueta__ponto"></span>O que fazemos</p>
+          <h2 class="secao__titulo">Um site pra cada momento do seu negócio</h2>
+          <p class="secao__descricao">
+            Escolha o formato certo pra sua necessidade agora — ou fale com a gente
+            e a gente ajuda a decidir.
+          </p>
+        </div>
+
+        <div class="grade-servicos">
+          <article class="cartao-servico reveal">
+            <div class="cartao-servico__icone" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V9.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" /></svg>
+            </div>
+            <h3 class="cartao-servico__titulo">Site Institucional</h3>
+            <p class="cartao-servico__descricao">
+              Presença profissional online, com design sob medida pra sua marca e
+              estrutura pensada pra passar credibilidade.
+            </p>
+            <a href="#contato" class="cartao-servico__link">Saiba mais →</a>
+          </article>
+
+          <article class="cartao-servico reveal reveal--atraso-1">
+            <div class="cartao-servico__icone" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" /></svg>
+            </div>
+            <h3 class="cartao-servico__titulo">Landing Page de Alta Conversão</h3>
+            <p class="cartao-servico__descricao">
+              Página focada em resultado: captar leads, vender um produto ou
+              lançar uma campanha com o máximo de conversão possível.
+            </p>
+            <a href="#contato" class="cartao-servico__link">Saiba mais →</a>
+          </article>
+
+          <article class="cartao-servico reveal reveal--atraso-2">
+            <div class="cartao-servico__icone" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M3 6h18l-1.6 10.2a2 2 0 0 1-2 1.8H6.6a2 2 0 0 1-2-1.8L3 6Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" /><path d="M8 6V5a4 4 0 0 1 8 0v1" stroke="currentColor" stroke-width="1.7" /></svg>
+            </div>
+            <h3 class="cartao-servico__titulo">E-commerce</h3>
+            <p class="cartao-servico__descricao">
+              Loja virtual completa, integrada a pagamento e pronta pra vender
+              24 horas por dia, todos os dias.
+            </p>
+            <a href="#contato" class="cartao-servico__link">Saiba mais →</a>
+          </article>
+
+          <article class="cartao-servico reveal reveal--atraso-3">
+            <div class="cartao-servico__icone" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M9 3H5a2 2 0 0 0-2 2v4M15 3h4a2 2 0 0 1 2 2v4M9 21H5a2 2 0 0 1-2-2v-4M15 21h4a2 2 0 0 0 2-2v-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" /></svg>
+            </div>
+            <h3 class="cartao-servico__titulo">Sistema Web Sob Medida</h3>
+            <p class="cartao-servico__descricao">
+              Aplicações, painéis e integrações feitas especificamente pra
+              resolver o processo do seu negócio.
+            </p>
+            <a href="#contato" class="cartao-servico__link">Saiba mais →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         PROCESSO / COMO TRABALHAMOS
+         ========================================================================== -->
+    <section class="secao secao--alt" id="processo">
+      <div class="container">
+        <div class="secao__cabecalho reveal">
+          <p class="etiqueta etiqueta--centro"><span class="etiqueta__ponto"></span>Como funciona</p>
+          <h2 class="secao__titulo">Do briefing ao site no ar</h2>
+          <p class="secao__descricao">Um processo simples, transparente e sem enrolação.</p>
+        </div>
+
+        <ol class="processo">
+          <li class="processo__etapa reveal">
+            <span class="processo__numero">01</span>
+            <h3 class="processo__titulo">Briefing</h3>
+            <p class="processo__descricao">Entendemos seu negócio, objetivo e público antes de desenhar qualquer tela.</p>
+          </li>
+          <li class="processo__etapa reveal reveal--atraso-1">
+            <span class="processo__numero">02</span>
+            <h3 class="processo__titulo">Proposta</h3>
+            <p class="processo__descricao">Escopo, prazo e investimento claros, por escrito, antes de começar.</p>
+          </li>
+          <li class="processo__etapa reveal reveal--atraso-2">
+            <span class="processo__numero">03</span>
+            <h3 class="processo__titulo">Design</h3>
+            <p class="processo__descricao">Protótipo visual do site pra você aprovar antes de qualquer linha de código.</p>
+          </li>
+          <li class="processo__etapa reveal reveal--atraso-3">
+            <span class="processo__numero">04</span>
+            <h3 class="processo__titulo">Desenvolvimento</h3>
+            <p class="processo__descricao">Construção real do site: rápido, responsivo e otimizado pra buscadores.</p>
+          </li>
+          <li class="processo__etapa reveal reveal--atraso-4">
+            <span class="processo__numero">05</span>
+            <h3 class="processo__titulo">Lançamento</h3>
+            <p class="processo__descricao">Site no ar, com suporte pós-entrega pra qualquer ajuste que precisar.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         PORTFÓLIO
+         TROCAR: substitua os cartões abaixo por cases reais assim que tiver
+         (foto/print real do projeto no lugar do mock-navegador).
+         ========================================================================== -->
+    <section class="secao" id="portfolio">
+      <div class="container">
+        <div class="secao__cabecalho reveal">
+          <p class="etiqueta etiqueta--centro"><span class="etiqueta__ponto"></span>Portfólio</p>
+          <h2 class="secao__titulo">Estilos que já entregamos</h2>
+          <p class="secao__descricao">
+            Um case real já entregue, e layouts ilustrativos representando outros estilos
+            que a DCodes constrói — mais cases reais chegando aqui em breve.
+          </p>
+        </div>
+
+        <div class="grade-portfolio">
+          <article class="cartao-projeto reveal">
+            <div class="mock-navegador">
+              <div class="mock-navegador__barra">
+                <span></span><span></span><span></span>
+                <span class="mock-navegador__endereco">amazonvisto.com.br</span>
+              </div>
+              <div class="mock-navegador__corpo mock-navegador__corpo--imagem">
+                <img src="images/portfolio-amazonvisto.jpg?v=7" alt="Amazon Visto — página inicial (visto americano, canadense, chinês e passaporte)" loading="lazy" />
+              </div>
+            </div>
+            <div class="cartao-projeto__info">
+              <h3 class="cartao-projeto__titulo">Amazon Visto</h3>
+              <p class="cartao-projeto__categoria">Assessoria de vistos — caso real</p>
+            </div>
+          </article>
+
+          <article class="cartao-projeto reveal reveal--atraso-1">
+            <div class="mock-navegador">
+              <div class="mock-navegador__barra"><span></span><span></span><span></span></div>
+              <div class="mock-navegador__corpo">
+                <div class="mock-bloco mock-bloco--hero"></div>
+                <div class="mock-grade-produtos">
+                  <div class="mock-bloco mock-bloco--produto"></div>
+                  <div class="mock-bloco mock-bloco--produto"></div>
+                  <div class="mock-bloco mock-bloco--produto"></div>
+                </div>
+              </div>
+            </div>
+            <div class="cartao-projeto__info">
+              <h3 class="cartao-projeto__titulo">E-commerce</h3>
+              <p class="cartao-projeto__categoria">Loja virtual</p>
+            </div>
+          </article>
+
+          <article class="cartao-projeto reveal reveal--atraso-2">
+            <div class="mock-navegador">
+              <div class="mock-navegador__barra"><span></span><span></span><span></span></div>
+              <div class="mock-navegador__corpo">
+                <div class="mock-bloco mock-bloco--hero mock-bloco--curto"></div>
+                <div class="mock-bloco mock-bloco--texto"></div>
+                <div class="mock-bloco mock-bloco--texto mock-bloco--estreito"></div>
+              </div>
+            </div>
+            <div class="cartao-projeto__info">
+              <h3 class="cartao-projeto__titulo">Landing Page</h3>
+              <p class="cartao-projeto__categoria">Lançamento de produto</p>
+            </div>
+          </article>
+
+          <article class="cartao-projeto reveal">
+            <div class="mock-navegador">
+              <div class="mock-navegador__barra"><span></span><span></span><span></span></div>
+              <div class="mock-navegador__corpo">
+                <div class="mock-bloco mock-bloco--nav"></div>
+                <div class="mock-linhas mock-linhas--painel">
+                  <div class="mock-bloco mock-bloco--card mock-bloco--alto"></div>
+                  <div class="mock-bloco mock-bloco--card mock-bloco--alto"></div>
+                </div>
+              </div>
+            </div>
+            <div class="cartao-projeto__info">
+              <h3 class="cartao-projeto__titulo">Sistema Web</h3>
+              <p class="cartao-projeto__categoria">Painel interno</p>
+            </div>
+          </article>
+
+          <article class="cartao-projeto reveal reveal--atraso-1">
+            <div class="mock-navegador">
+              <div class="mock-navegador__barra"><span></span><span></span><span></span></div>
+              <div class="mock-navegador__corpo">
+                <div class="mock-bloco mock-bloco--hero"></div>
+                <div class="mock-linhas"><div class="mock-bloco mock-bloco--card"></div><div class="mock-bloco mock-bloco--card"></div><div class="mock-bloco mock-bloco--card"></div></div>
+              </div>
+            </div>
+            <div class="cartao-projeto__info">
+              <h3 class="cartao-projeto__titulo">Saúde &amp; Bem-estar</h3>
+              <p class="cartao-projeto__categoria">Clínica / consultório</p>
+            </div>
+          </article>
+
+          <article class="cartao-projeto reveal reveal--atraso-2">
+            <div class="mock-navegador">
+              <div class="mock-navegador__barra"><span></span><span></span><span></span></div>
+              <div class="mock-navegador__corpo">
+                <div class="mock-bloco mock-bloco--hero mock-bloco--curto"></div>
+                <div class="mock-linhas"><div class="mock-bloco mock-bloco--card"></div><div class="mock-bloco mock-bloco--card"></div></div>
+              </div>
+            </div>
+            <div class="cartao-projeto__info">
+              <h3 class="cartao-projeto__titulo">SaaS / Startup</h3>
+              <p class="cartao-projeto__categoria">Página de produto</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         DIFERENCIAIS
+         ========================================================================== -->
+    <section class="secao secao--alt">
+      <div class="container">
+        <div class="secao__cabecalho reveal">
+          <p class="etiqueta etiqueta--centro"><span class="etiqueta__ponto"></span>Diferenciais</p>
+          <h2 class="secao__titulo">Por que escolher a DCodes</h2>
+        </div>
+
+        <div class="grade-diferenciais">
+          <div class="diferencial reveal">
+            <div class="diferencial__icone" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" /><path d="M18.5 14.5l.5 1.4 1.4.5-1.4.5-.5 1.4-.5-1.4-1.4-.5 1.4-.5.5-1.4Z" fill="currentColor" /></svg>
+            </div>
+            <h3 class="diferencial__titulo">Design exclusivo</h3>
+            <p class="diferencial__descricao">Nada de template genérico — cada site é desenhado do zero pra sua marca.</p>
+          </div>
+          <div class="diferencial reveal reveal--atraso-1">
+            <div class="diferencial__icone" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" /></svg>
+            </div>
+            <h3 class="diferencial__titulo">Performance de verdade</h3>
+            <p class="diferencial__descricao">Sites leves e rápidos, otimizados pelas métricas que o Google avalia.</p>
+          </div>
+          <div class="diferencial reveal reveal--atraso-2">
+            <div class="diferencial__icone" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.7" /><path d="M20 20l-4.35-4.35" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" /></svg>
+            </div>
+            <h3 class="diferencial__titulo">SEO desde o início</h3>
+            <p class="diferencial__descricao">Estrutura pensada pra ser encontrada no Google, não só bonita.</p>
+          </div>
+          <div class="diferencial reveal reveal--atraso-3">
+            <div class="diferencial__icone" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="4.5" width="13" height="9.5" rx="1.4" stroke="currentColor" stroke-width="1.6" /><path d="M7.5 17.5h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" /><rect x="15.5" y="9" width="5.5" height="10.5" rx="1.2" stroke="currentColor" stroke-width="1.6" /></svg>
+            </div>
+            <h3 class="diferencial__titulo">Responsivo de verdade</h3>
+            <p class="diferencial__descricao">Testado em celular, tablet e desktop — não só "encolhido" pra caber.</p>
+          </div>
+          <div class="diferencial reveal">
+            <div class="diferencial__icone" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 13v-1a8 8 0 0 1 16 0v1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" /><rect x="2.5" y="13" width="4" height="6" rx="1.4" stroke="currentColor" stroke-width="1.6" /><rect x="17.5" y="13" width="4" height="6" rx="1.4" stroke="currentColor" stroke-width="1.6" /><path d="M19.5 19v1a3 3 0 0 1-3 3h-2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" /></svg>
+            </div>
+            <h3 class="diferencial__titulo">Suporte pós-entrega</h3>
+            <p class="diferencial__descricao">O site no ar não é o fim — continuamos por perto pra ajustes e dúvidas.</p>
+          </div>
+          <div class="diferencial reveal reveal--atraso-1">
+            <div class="diferencial__icone" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12.6 3.4 20 10.8a2 2 0 0 1 0 2.8l-6.4 6.4a2 2 0 0 1-2.8 0L3.4 12.6A2 2 0 0 1 3 11.2V5a2 2 0 0 1 2-2h6.2c.5 0 1 .2 1.4.4Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" /><circle cx="8" cy="8" r="1.3" fill="currentColor" /></svg>
+            </div>
+            <h3 class="diferencial__titulo">Preço justo e claro</h3>
+            <p class="diferencial__descricao">Orçamento fechado antes de começar, sem surpresa na fatura.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         PLANOS
+         TROCAR: valores e itens de cada plano conforme seu precificação real.
+         ========================================================================== -->
+    <section class="secao" id="planos">
+      <div class="container">
+        <div class="secao__cabecalho reveal">
+          <p class="etiqueta etiqueta--centro"><span class="etiqueta__ponto"></span>Investimento</p>
+          <h2 class="secao__titulo">Planos que cabem no seu momento</h2>
+          <p class="secao__descricao">Valores de referência — todo projeto recebe um orçamento fechado antes de começar.</p>
+        </div>
+
+        <div class="grade-planos">
+          <article class="cartao-plano reveal">
+            <h3 class="cartao-plano__nome">Essencial</h3>
+            <p class="cartao-plano__descricao">Pra quem precisa de presença online rápida e profissional.</p>
+            <p class="cartao-plano__preco"><span class="cartao-plano__moeda">R$</span>897</p>
+            <p class="cartao-plano__periodo">projeto único, a partir de</p>
+            <ul class="cartao-plano__lista">
+              <li>Site institucional de 1 página</li>
+              <li>Design responsivo</li>
+              <li>Formulário de contato</li>
+              <li>Integração com WhatsApp</li>
+              <li>SEO básico</li>
+            </ul>
+            <a href="#contato" class="botao botao--fantasma cartao-plano__cta">Escolher plano</a>
+          </article>
+
+          <article class="cartao-plano cartao-plano--destaque reveal reveal--atraso-1">
+            <span class="cartao-plano__selo">Mais popular</span>
+            <h3 class="cartao-plano__nome">Profissional</h3>
+            <p class="cartao-plano__descricao">Pra negócios que querem crescer e converter mais visitantes.</p>
+            <p class="cartao-plano__preco"><span class="cartao-plano__moeda">R$</span>1.997</p>
+            <p class="cartao-plano__periodo">projeto único, a partir de</p>
+            <ul class="cartao-plano__lista">
+              <li>Site multi-página sob medida</li>
+              <li>Design exclusivo pra sua marca</li>
+              <li>Blog/seção de conteúdo</li>
+              <li>SEO avançado + Google Analytics</li>
+              <li>Integrações (WhatsApp, redes, formulários)</li>
+              <li>30 dias de suporte após a entrega</li>
+            </ul>
+            <a
+              href="https://wa.me/5592992162419?text=Ol%C3%A1%2C%20quero%20o%20plano%20Profissional."
+              target="_blank"
+              rel="noopener"
+              class="botao botao--primario cartao-plano__cta"
+            >Escolher plano</a>
+          </article>
+
+          <article class="cartao-plano reveal reveal--atraso-2">
+            <h3 class="cartao-plano__nome">Sob Medida</h3>
+            <p class="cartao-plano__descricao">Pra e-commerces e sistemas com necessidades específicas.</p>
+            <p class="cartao-plano__preco cartao-plano__preco--texto">Sob consulta</p>
+            <p class="cartao-plano__periodo">escopo personalizado</p>
+            <ul class="cartao-plano__lista">
+              <li>E-commerce completo ou sistema web</li>
+              <li>Integrações de pagamento e API</li>
+              <li>Painel administrativo</li>
+              <li>Escalável pro tamanho do seu negócio</li>
+              <li>Suporte contínuo sob contrato</li>
+            </ul>
+            <a href="#contato" class="botao botao--fantasma cartao-plano__cta">Solicitar orçamento</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         FAQ
+         ========================================================================== -->
+    <section class="secao" id="faq">
+      <div class="container container--estreito">
+        <div class="secao__cabecalho reveal">
+          <p class="etiqueta etiqueta--centro"><span class="etiqueta__ponto"></span>Dúvidas frequentes</p>
+          <h2 class="secao__titulo">Perguntas frequentes</h2>
+        </div>
+
+        <div class="faq reveal">
+          <details class="faq__item" open>
+            <summary class="faq__pergunta">Quanto tempo leva pra ficar pronto?<span class="faq__icone" aria-hidden="true"></span></summary>
+            <p class="faq__resposta">Depende do escopo: uma landing page costuma ficar pronta em 5 a 10 dias úteis; sites maiores e e-commerces levam de 3 a 6 semanas. Você recebe um prazo fechado ainda na proposta.</p>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__pergunta">Preciso ter o conteúdo (textos e fotos) pronto?<span class="faq__icone" aria-hidden="true"></span></summary>
+            <p class="faq__resposta">Ajuda bastante, mas não é obrigatório. A gente te orienta sobre o que é preciso e pode ajudar a organizar/redigir os textos se precisar.</p>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__pergunta">Vocês cuidam do domínio e da hospedagem?<span class="faq__icone" aria-hidden="true"></span></summary>
+            <p class="faq__resposta">Sim, ajudamos a registrar o domínio e colocar o site no ar numa hospedagem confiável — ou usamos a que você já tiver.</p>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__pergunta">Como funciona o suporte depois que o site vai ao ar?<span class="faq__icone" aria-hidden="true"></span></summary>
+            <p class="faq__resposta">Todo plano inclui um período de suporte pós-entrega pra ajustes e dúvidas. Depois disso, oferecemos planos de manutenção contínua opcionais.</p>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__pergunta">Quais formas de pagamento vocês aceitam?<span class="faq__icone" aria-hidden="true"></span></summary>
+            <p class="faq__resposta">Pix, transferência e cartão (com opção de parcelamento). O pagamento costuma ser dividido em etapas do projeto.</p>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__pergunta">O site funciona bem no celular?<span class="faq__icone" aria-hidden="true"></span></summary>
+            <p class="faq__resposta">Sim — todo site é construído e testado primeiro pensando em celular (a maioria dos visitantes acessa por lá), depois adaptado pra tablet e desktop.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         CTA FINAL
+         ========================================================================== -->
+    <section class="cta-final" id="contato">
+      <div class="container cta-final__conteudo reveal">
+        <h2 class="cta-final__titulo">Vamos tirar seu site do papel?</h2>
+        <p class="cta-final__descricao">
+          Fale com a gente agora e receba uma proposta sob medida pro seu projeto.
+        </p>
+        <div class="cta-final__acoes">
+          <a
+            href="https://wa.me/5592992162419?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20um%20or%C3%A7amento."
+            target="_blank"
+            rel="noopener"
+            class="botao botao--primario botao--grande"
+          >
+            Falar no WhatsApp
+          </a>
+          <a href="mailto:engdancardoso@gmail.com" class="botao botao--fantasma botao--grande">
+            engdancardoso@gmail.com
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       RODAPÉ
+       TROCAR: redes sociais (Instagram/LinkedIn/GitHub ainda são placeholder)
+       ========================================================================== -->
+  <footer class="rodape">
+    <div class="container rodape__grade">
+      <div class="rodape__coluna rodape__coluna--marca">
+        <a href="#inicio" class="logo">
+          <span class="logo__marca" aria-hidden="true">
+            <svg viewBox="0 0 64 64" width="30" height="30">
+              <rect width="64" height="64" rx="16" fill="url(#gradLogo)" />
+              <path d="M24 20 L13 32 L24 44" fill="none" stroke="#0a0a12" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M40 20 L51 32 L40 44" fill="none" stroke="#0a0a12" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M35 16 L29 48" fill="none" stroke="#0a0a12" stroke-width="4" stroke-linecap="round" />
+            </svg>
+          </span>
+          <span class="logo__texto">D<span class="logo__destaque">Codes</span></span>
+        </a>
+        <p class="rodape__texto">
+          Criamos sites que unem design, performance e conversão — pra fazer
+          seu negócio vender mais na internet.
+        </p>
+        <ul class="rodape__redes">
+          <li><a href="https://instagram.com/dcodes" target="_blank" rel="noopener" aria-label="Instagram da DCodes"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.7" /><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.7" /><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" /></svg></a></li>
+          <li><a href="https://linkedin.com/company/dcodes" target="_blank" rel="noopener" aria-label="LinkedIn da DCodes"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-width="1.7" /><path d="M8 10.5V17M8 7.5v.01M12.5 17v-4a2 2 0 1 1 4 0v4M12.5 10.5V17" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" /></svg></a></li>
+          <li><a href="https://github.com/dcodes" target="_blank" rel="noopener" aria-label="GitHub da DCodes"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.1.68-.22.68-.48v-1.7c-2.78.6-3.37-1.35-3.37-1.35-.46-1.15-1.11-1.46-1.11-1.46-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.93 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.4 9.4 0 0 1 5 0c1.9-1.3 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.6 1.03 2.68 0 3.83-2.34 4.68-4.57 4.92.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" /></svg></a></li>
+        </ul>
+      </div>
+
+      <div class="rodape__coluna">
+        <h3 class="rodape__titulo">Navegação</h3>
+        <ul class="rodape__lista">
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#processo">Processo</a></li>
+          <li><a href="#portfolio">Portfólio</a></li>
+          <li><a href="#planos">Planos</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="rodape__coluna">
+        <h3 class="rodape__titulo">Serviços</h3>
+        <ul class="rodape__lista">
+          <li><a href="#servicos">Site institucional</a></li>
+          <li><a href="#servicos">Landing page</a></li>
+          <li><a href="#servicos">E-commerce</a></li>
+          <li><a href="#servicos">Sistema sob medida</a></li>
+        </ul>
+      </div>
+
+      <div class="rodape__coluna">
+        <h3 class="rodape__titulo">Contato</h3>
+        <ul class="rodape__lista">
+          <li><a href="https://wa.me/5592992162419" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="mailto:engdancardoso@gmail.com">engdancardoso@gmail.com</a></li>
+          <li><span class="rodape__texto-simples">Atendimento em todo o Brasil</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rodape__base">
+      <div class="container rodape__base-conteudo">
+        <p>&copy; <span id="anoAtual">2026</span> DCodes. Todos os direitos reservados.</p>
+        <p class="rodape__marca-final">Feito com <span aria-hidden="true">&lt;/&gt;</span> pela própria DCodes</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Botões flutuantes -->
+  <a
+    href="https://wa.me/5592992162419?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20um%20or%C3%A7amento."
+    target="_blank"
+    rel="noopener"
+    class="whatsapp-flutuante"
+    aria-label="Falar no WhatsApp"
+  >
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1.1.5 1.1 1.1V20c0 .6-.5 1.1-1.1 1.1C10.6 21.1 3 13.5 3 4.2 3 3.6 3.5 3 4.2 3h3.4c.6 0 1.1.5 1.1 1.1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8Z" fill="currentColor" /></svg>
+  </a>
+
+  <button class="topo-flutuante" id="botaoTopo" aria-label="Voltar ao topo" hidden>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+  </button>
+
+  <!-- GSAP + ScrollTrigger (CDN, versão fixa pra evitar quebra silenciosa
+       numa atualização futura da "latest") — carregados ANTES de main.js
+       porque ele referencia os globais gsap/ScrollTrigger direto. -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
+  <script src="js/main.js?v=3"></script>
+  <!-- three.js: módulo ES separado, isolado do resto (se o WebGL falhar
+       aqui, não derruba nenhuma outra animação da página). -->
+  <script type="module" src="js/hero-canvas.js?v=1"></script>
+</body>
+</html>
