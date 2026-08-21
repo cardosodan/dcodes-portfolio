@@ -3,6 +3,7 @@ import { motion } from "motion/react";
 
 import { LogoLoop } from "@/components/react-bits/LogoLoop";
 import ClickSpark from "@/components/react-bits/ClickSpark";
+import { HeroInspectorPanel } from "@/components/site/hero-inspector-panel";
 import { ScrambleText } from "@/components/unlumen-ui/scramble-text";
 import { TextReveal } from "@/components/unlumen-ui/text-reveal";
 import { GlowButton } from "@/components/unlumen-ui/glow";
@@ -11,7 +12,6 @@ import { CountUp } from "@/components/unlumen-ui/count-up";
 import { GithubGraph } from "@/components/unlumen-ui/github-graph";
 import { FloatingTooltip } from "@/components/unlumen-ui/floating-tooltip";
 import { CONTACT, STATS } from "@/lib/site-data";
-import { cn } from "@/lib/utils";
 
 const LIME = ["#CBFF3D", "#8FCC1F", "#EFFFB0", "#CBFF3D"];
 
@@ -23,20 +23,30 @@ function HeroGlow() {
   return (
     <div className="absolute inset-0 overflow-hidden">
       <motion.div
-        className="absolute -left-1/4 top-[-20%] h-[70%] w-[70%] rounded-full bg-[#CBFF3D] opacity-25 blur-[110px]"
+        className="absolute -left-1/4 top-[-20%] h-[70%] w-[70%] rounded-full bg-[#CBFF3D] opacity-40 blur-[110px]"
         animate={{ x: [0, 40, 0], y: [0, 20, 0] }}
         transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="absolute -right-1/4 top-[10%] h-[60%] w-[60%] rounded-full bg-[#8FCC1F] opacity-20 blur-[110px]"
+        className="absolute -right-1/4 top-[10%] h-[60%] w-[60%] rounded-full bg-[#8FCC1F] opacity-30 blur-[110px]"
         animate={{ x: [0, -30, 0], y: [0, 30, 0] }}
         transition={{ duration: 26, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="absolute bottom-[-25%] left-1/3 h-[55%] w-[55%] rounded-full bg-[#3a4a12] opacity-30 blur-[110px]"
+        className="absolute bottom-[-25%] left-1/3 h-[55%] w-[55%] rounded-full bg-[#3a4a12] opacity-40 blur-[110px]"
         animate={{ x: [0, 20, 0], y: [0, -20, 0] }}
         transition={{ duration: 30, repeat: Infinity, ease: "easeInOut" }}
       />
+      {/* quarto acento — mancha menor e mais brilhante pra dar um "hotspot"
+          de contraste, em vez do verde uniformemente abafado da v1. */}
+      <motion.div
+        className="absolute right-[8%] top-[30%] h-[28%] w-[28%] rounded-full bg-[#EFFFB0] opacity-30 blur-[90px]"
+        animate={{ x: [0, -15, 0], y: [0, 15, 0], scale: [1, 1.15, 1] }}
+        transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+      />
+      {/* vinheta radial: escurece os cantos pra o centro (texto + painel)
+          ganhar contraste, em vez do blur ficar homogêneo por toda a tela. */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_35%,var(--background)_100%)] opacity-70" />
     </div>
   );
 }
@@ -57,39 +67,11 @@ const SEGMENTS = [
   ariaLabel: label,
 }));
 
-const ANNOTATIONS = [
-  { label: "font: Sora / 800", className: "left-[2%] top-[14%]" },
-  { label: "grid: 12 col · gap 16", className: "left-[58%] top-[6%]" },
-  { label: "#0B0C10", className: "right-[4%] top-[36%]" },
-  { label: "lh: 0.95 · tracking: -2%", className: "left-[6%] bottom-[30%]" },
-];
-
-function InspectorTag({
-  label,
-  className,
-}: {
-  label: string;
-  className?: string;
-}) {
-  return (
-    <span
-      className={cn(
-        "pointer-events-none absolute hidden select-none items-center gap-1.5 rounded-full border border-line bg-card/70 px-2.5 py-1 font-mono text-[11px] text-muted-foreground backdrop-blur-sm lg:inline-flex",
-        className,
-      )}
-      aria-hidden="true"
-    >
-      <span className="h-1 w-1 rounded-full bg-primary" />
-      {label}
-    </span>
-  );
-}
-
 export function Hero() {
   return (
     <section
       id="inicio"
-      className="relative isolate flex min-h-[100svh] flex-col overflow-hidden bg-background pt-32 pb-0"
+      className="relative isolate flex min-h-[100svh] flex-col overflow-hidden bg-background pt-24 pb-0"
     >
       {/* Fundo — aurora em tons de "signal" (lima) sobre grade de coordenadas,
           no lugar do mockup de navegador genérico: o site "se inspeciona"
@@ -100,17 +82,13 @@ export function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/30 to-background" />
       </div>
 
-      <div className="relative mx-auto grid w-full max-w-6xl flex-1 grid-cols-12 gap-4 px-4 sm:px-6">
-        {ANNOTATIONS.map((a) => (
-          <InspectorTag key={a.label} label={a.label} className={a.className} />
-        ))}
-
-        <div className="col-span-12 flex flex-col justify-center gap-7 py-10 lg:col-span-8">
+      <div className="relative mx-auto grid w-full max-w-6xl flex-1 grid-cols-12 items-center gap-8 px-4 pb-20 sm:px-6 lg:pb-16">
+        <div className="col-span-12 flex flex-col gap-5 py-6 lg:col-span-7">
           <GlowingBadge variant="neutral" pulse>
             Agência de desenvolvimento web
           </GlowingBadge>
 
-          <h1 className="font-display text-[12vw] font-bold leading-[0.95] tracking-tight sm:text-6xl lg:text-[5.2rem]">
+          <h1 className="font-display text-[12vw] font-bold leading-[0.95] tracking-tight sm:text-6xl lg:text-[4.4rem]">
             <ScrambleText text="Sites que fazem seu negócio" />
             <br />
             <span className="text-signal">
@@ -161,7 +139,9 @@ export function Hero() {
           </p>
         </div>
 
-        <div className="col-span-4 hidden lg:block" aria-hidden="true" />
+        <div className="col-span-5 hidden lg:block">
+          <HeroInspectorPanel />
+        </div>
       </div>
 
       {/* Segmentos atendidos — faixa em loop infinito (marquee), não a

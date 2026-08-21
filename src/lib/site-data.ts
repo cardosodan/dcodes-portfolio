@@ -125,52 +125,60 @@ export interface PortfolioItem {
   title: string;
   category: string;
   stack: string[];
+  icon: "shopping-cart" | "rocket" | "gauge" | "heartbeat" | "cube";
 }
 
 export const PORTFOLIO_SECONDARY: PortfolioItem[] = [
-  { title: "E-commerce", category: "Loja virtual", stack: ["React", "Stripe", "Pix"] },
-  { title: "Landing Page", category: "Lançamento de produto", stack: ["Vite", "GSAP"] },
-  { title: "Sistema Web", category: "Painel interno", stack: ["React", "Node", "Postgres"] },
-  { title: "Saúde & Bem-estar", category: "Clínica / consultório", stack: ["HTML", "CSS", "JS"] },
-  { title: "SaaS / Startup", category: "Página de produto", stack: ["Next.js", "Tailwind"] },
+  { title: "E-commerce", category: "Loja virtual", stack: ["React", "Stripe", "Pix"], icon: "shopping-cart" },
+  { title: "Landing Page", category: "Lançamento de produto", stack: ["Vite", "GSAP"], icon: "rocket" },
+  { title: "Sistema Web", category: "Painel interno", stack: ["React", "Node", "Postgres"], icon: "gauge" },
+  { title: "Saúde & Bem-estar", category: "Clínica / consultório", stack: ["HTML", "CSS", "JS"], icon: "heartbeat" },
+  { title: "SaaS / Startup", category: "Página de produto", stack: ["Next.js", "Tailwind"], icon: "cube" },
 ];
 
 export interface Differential {
   title: string;
   description: string;
-  coord: string;
+  icon: "paint-brush" | "lightning" | "trend-up" | "device-mobile" | "headset" | "hand-coins";
+  size: "lg" | "sm";
 }
 
 export const DIFFERENTIALS: Differential[] = [
   {
     title: "Design exclusivo",
     description: "Nada de template genérico — cada site é desenhado do zero pra sua marca.",
-    coord: "x:12 y:08",
+    icon: "paint-brush",
+    size: "lg",
   },
   {
     title: "Performance de verdade",
     description: "Sites leves e rápidos, otimizados pelas métricas que o Google avalia.",
-    coord: "x:64 y:14",
-  },
-  {
-    title: "SEO desde o início",
-    description: "Estrutura pensada pra ser encontrada no Google, não só bonita.",
-    coord: "x:08 y:52",
-  },
-  {
-    title: "Responsivo de verdade",
-    description: 'Testado em celular, tablet e desktop — não só "encolhido" pra caber.',
-    coord: "x:70 y:58",
+    icon: "lightning",
+    size: "sm",
   },
   {
     title: "Suporte pós-entrega",
     description: "O site no ar não é o fim — continuamos por perto pra ajustes e dúvidas.",
-    coord: "x:20 y:86",
+    icon: "headset",
+    size: "lg",
+  },
+  {
+    title: "SEO desde o início",
+    description: "Estrutura pensada pra ser encontrada no Google, não só bonita.",
+    icon: "trend-up",
+    size: "sm",
+  },
+  {
+    title: "Responsivo de verdade",
+    description: 'Testado em celular, tablet e desktop — não só "encolhido" pra caber.',
+    icon: "device-mobile",
+    size: "sm",
   },
   {
     title: "Preço justo e claro",
     description: "Orçamento fechado antes de começar, sem surpresa na fatura.",
-    coord: "x:66 y:90",
+    icon: "hand-coins",
+    size: "sm",
   },
 ];
 

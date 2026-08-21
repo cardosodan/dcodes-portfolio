@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import {
   House,
   Stack,
@@ -13,6 +14,7 @@ import { Dock, type DockItem } from "@/components/unlumen-ui/dock";
 import { ThemeSwitch } from "@/components/unlumen-ui/theme-switch";
 import { CommandMenu } from "@/components/unlumen-ui/command-menu";
 import { CONTACT } from "@/lib/site-data";
+import { cn } from "@/lib/utils";
 
 const WHATSAPP_HREF = CONTACT.whatsappUrl(
   "Olá, vim pelo site e quero um orçamento.",
@@ -33,6 +35,19 @@ const DOCK_ITEMS: DockItem[] = [
 ];
 
 export function SiteNav() {
+  // Some no topo: em viewports curtos o CTA do hero fica exatamente onde o
+  // dock flutuaria por cima (colisão real reportada). Em vez de tentar
+  // "adivinhar" padding suficiente pra qualquer altura de tela, o dock só
+  // aparece depois de rolar um pouco — momento em que o hero já saiu do
+  // caminho de qualquer forma.
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 120);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <>
       {/* Barra superior mínima — sem links de menu tradicionais (eles vivem
@@ -85,9 +100,15 @@ export function SiteNav() {
         </div>
       </div>
 
-      {/* Dock flutuante — navegação principal do site. */}
+      {/* Dock flutuante — navegação principal do site. Só some no topo
+          absoluto (ver comentário acima); a partir daí fica sempre visível. */}
       <nav
-        className="fixed inset-x-0 bottom-5 z-40 flex justify-center px-4"
+        className={cn(
+          "fixed inset-x-0 bottom-5 z-40 flex justify-center px-4 transition-all duration-300",
+          scrolled
+            ? "translate-y-0 opacity-100"
+            : "pointer-events-none translate-y-4 opacity-0",
+        )}
         aria-label="Navegação principal"
       >
         <Dock items={DOCK_ITEMS} iconSize={38} magnification={1.7} />
