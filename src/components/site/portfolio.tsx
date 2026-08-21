@@ -6,6 +6,15 @@ import { Eyebrow } from "@/components/site/eyebrow";
 import { ViewfinderCorners } from "@/components/site/viewfinder-corners";
 import { PORTFOLIO_SECONDARY } from "@/lib/site-data";
 
+// import.meta.env.BASE_URL (= vite.config's `base`, "./") em vez de path
+// absoluto "/images/...": num deploy de subpasta (GitHub Pages de repo de
+// projeto) um "/..." resolve contra a RAIZ do domínio, não a subpasta do
+// site, e a imagem cai em 404 — foi o que quebrou o reveal antes/depois
+// no ar.
+const ASSET_BASE = import.meta.env.BASE_URL;
+const WIREFRAME_IMG = `${ASSET_BASE}images/wireframe-amazonvisto.svg`;
+const AMAZONVISTO_IMG = `${ASSET_BASE}images/portfolio-amazonvisto.jpg`;
+
 export function Portfolio() {
   return (
     <section id="portfolio" className="scroll-mt-24 py-24 sm:py-32">
@@ -31,8 +40,8 @@ export function Portfolio() {
         <div className="group relative mb-10 overflow-hidden rounded-xl border border-line bg-card">
           <ViewfinderCorners />
           <SideBySideSlide
-            beforeImage="/images/wireframe-amazonvisto.svg"
-            afterImage="/images/portfolio-amazonvisto.jpg"
+            beforeImage={WIREFRAME_IMG}
+            afterImage={AMAZONVISTO_IMG}
             beforeAlt="Wireframe inicial do Amazon Visto"
             afterAlt="Amazon Visto — site publicado"
             className="aspect-[860/576] w-full"
@@ -53,7 +62,7 @@ export function Portfolio() {
               href="https://amazonvisto.com.br"
               title="Amazon Visto"
               description="Assessoria de vistos americano, canadense, chinês e passaporte."
-              image="/images/portfolio-amazonvisto.jpg"
+              image={AMAZONVISTO_IMG}
               className="font-mono text-sm"
             >
               amazonvisto.com.br ↗
