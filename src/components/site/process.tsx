@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 
+import { Eyebrow } from "@/components/site/eyebrow";
 import { TextReveal } from "@/components/unlumen-ui/text-reveal";
 import { PROCESS_STEPS } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
@@ -16,9 +17,9 @@ export function Process() {
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="mb-14 max-w-2xl">
-          <p className="mb-3 font-mono text-xs uppercase tracking-widest text-primary">
+          <Eyebrow className="mb-3">
             Como funciona
-          </p>
+          </Eyebrow>
           <TextReveal
             as="h2"
             text="Do briefing ao site no ar"
@@ -36,7 +37,7 @@ export function Process() {
                 key={s.number}
                 type="button"
                 onClick={() => setActive(i)}
-                className="group flex flex-1 flex-col items-center gap-3 outline-none"
+                className="group flex flex-1 cursor-pointer flex-col items-center gap-3 outline-none"
               >
                 <span
                   className={cn(
@@ -44,7 +45,7 @@ export function Process() {
                     i === active
                       ? "border-primary bg-primary text-primary-foreground"
                       : i < active
-                        ? "border-primary/60 bg-background text-primary"
+                        ? "border-signal/60 bg-background text-signal"
                         : "border-line bg-background text-muted-foreground group-hover:border-foreground/30",
                   )}
                 >

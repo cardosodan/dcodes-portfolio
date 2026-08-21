@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { useTheme } from "next-themes";
-import { Moon, Sun, Monitor, Search } from "lucide-react";
+import { Moon, Sun, Monitor, MagnifyingGlass } from "@phosphor-icons/react";
 
 import {
   CommandDialog,
@@ -82,7 +82,7 @@ function CommandMenuTrigger({
       )}
       {...props}
     >
-      <Search className="size-4 shrink-0" />
+      <MagnifyingGlass weight="bold" className="size-4 shrink-0" />
       <span className="flex-1 text-left">{label}</span>
       {showShortcut && (
         <KbdGroup>

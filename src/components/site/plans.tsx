@@ -1,5 +1,7 @@
-import { Check } from "lucide-react";
+import { Check } from "@phosphor-icons/react";
 
+import GlareHover from "@/components/react-bits/GlareHover";
+import { Eyebrow } from "@/components/site/eyebrow";
 import { Tilt } from "@/components/unlumen-ui/tilt";
 import { GlowButton } from "@/components/unlumen-ui/glow";
 import { TextReveal } from "@/components/unlumen-ui/text-reveal";
@@ -42,16 +44,17 @@ function PlanCard({ plan }: { plan: (typeof PLANS)[number] }) {
       <ul className="flex flex-1 flex-col gap-2.5">
         {plan.items.map((item) => (
           <li key={item} className="flex items-start gap-2 text-sm">
-            <Check className="mt-0.5 size-4 shrink-0 text-primary" />
+            <Check weight="bold" className="mt-0.5 size-4 shrink-0 text-signal" />
             {item}
           </li>
         ))}
       </ul>
 
       {plan.featured ? (
+        // mode="static": o glow em loop já está reservado pro CTA do hero.
         <GlowButton
           colors={LIME}
-          mode="pulse"
+          mode="static"
           blur="medium"
           className="rounded-full bg-primary py-2.5 text-primary-foreground hover:bg-primary/90"
           onClick={() => window.open(plan.ctaHref, "_blank")}
@@ -75,9 +78,9 @@ export function Plans() {
     <section id="planos" className="scroll-mt-24 py-24 sm:py-32">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="mb-14 max-w-2xl">
-          <p className="mb-3 font-mono text-xs uppercase tracking-widest text-primary">
+          <Eyebrow className="mb-3">
             Investimento
-          </p>
+          </Eyebrow>
           <TextReveal
             as="h2"
             text="Planos que cabem no seu momento"
@@ -93,7 +96,19 @@ export function Plans() {
           {PLANS.map((plan) =>
             plan.featured ? (
               <Tilt key={plan.name} rotationFactor={5} className="h-full">
-                <PlanCard plan={plan} />
+                <GlareHover
+                  width="100%"
+                  height="100%"
+                  background="transparent"
+                  borderColor="transparent"
+                  glareColor="#CBFF3D"
+                  glareOpacity={0.4}
+                  glareAngle={-30}
+                  glareSize={220}
+                  className="!border-0 h-full"
+                >
+                  <PlanCard plan={plan} />
+                </GlareHover>
               </Tilt>
             ) : (
               <PlanCard key={plan.name} plan={plan} />

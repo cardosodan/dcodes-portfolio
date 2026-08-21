@@ -1,3 +1,4 @@
+import { Eyebrow } from "@/components/site/eyebrow";
 import { FloatingTooltip } from "@/components/unlumen-ui/floating-tooltip";
 import { TextReveal } from "@/components/unlumen-ui/text-reveal";
 import { DIFFERENTIALS } from "@/lib/site-data";
@@ -14,9 +15,9 @@ export function Differentials() {
     <section className="scroll-mt-24 border-t border-line py-24 sm:py-32">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="mb-14 max-w-2xl">
-          <p className="mb-3 font-mono text-xs uppercase tracking-widest text-primary">
+          <Eyebrow className="mb-3">
             Diferenciais
-          </p>
+          </Eyebrow>
           <TextReveal
             as="h2"
             text="Por que escolher a DCodes"
@@ -52,12 +53,12 @@ export function Differentials() {
               >
                 <button
                   type="button"
-                  className="group absolute flex -translate-x-1/2 -translate-y-1/2 items-center justify-center"
+                  className="group absolute flex -translate-x-1/2 -translate-y-1/2 cursor-pointer items-center justify-center"
                   style={{ left: `${x}%`, top: `${y}%` }}
                   aria-label={item.title}
                 >
                   <span className="absolute size-8 rounded-full bg-primary/20 transition-transform group-hover:scale-150" />
-                  <span className="relative flex size-5 items-center justify-center rounded-full border border-primary bg-background font-mono text-[9px] font-bold text-primary">
+                  <span className="relative flex size-5 items-center justify-center rounded-full border border-signal bg-background font-mono text-[9px] font-bold text-signal">
                     {i + 1}
                   </span>
                 </button>
@@ -69,7 +70,7 @@ export function Differentials() {
         <ol className="mt-8 grid gap-x-8 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
           {DIFFERENTIALS.map((item, i) => (
             <li key={item.title} className="flex items-start gap-2.5 text-sm">
-              <span className="mt-0.5 font-mono text-xs font-bold text-primary">
+              <span className="mt-0.5 font-mono text-xs font-bold text-signal">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <span className="text-foreground/80">{item.title}</span>

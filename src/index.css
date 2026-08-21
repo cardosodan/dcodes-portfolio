@@ -77,8 +77,14 @@
     --input: oklch(0.88 0.008 95);
     --ring: oklch(0.82 0.19 126);
     --line: oklch(0.88 0.008 95);
-    --signal: oklch(0.84 0.21 126);
-    --signal-foreground: oklch(0.16 0.05 126);
+    /* "signal" é a mesma família lima usada em bg-primary, mas escurecida
+       o suficiente pra funcionar como TEXTO/ícone/borda legível sobre fundo
+       claro (6.5:1 — bg-primary em si só passa em 2.5:1 nesse papel,
+       porque foi calibrado pra ter texto escuro POR CIMA, não pra ser lido
+       como texto). Use text-signal/border-signal pra texto e bordas finas;
+       bg-primary continua só pra superfícies preenchidas (botões, badges). */
+    --signal: oklch(0.46 0.16 126);
+    --signal-foreground: oklch(0.99 0.003 95);
     --chart-1: oklch(0.84 0.21 126);
     --chart-2: oklch(0.6 0.15 240);
     --chart-3: oklch(0.7 0.15 40);
@@ -142,6 +148,14 @@
   body {
     @apply bg-background text-foreground font-sans;
     font-feature-settings: "cv11", "ss01";
+  }
+  /* <button> tem cursor "default" (seta) no UA stylesheet do Firefox — só
+     Chrome/Safari mostram pointer por padrão. Regra global em vez de
+     `cursor-pointer` espalhado em cada componente (inclusive os vendorizados
+     do Unlumen/ReactBits que não dá pra editar um por um). */
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]) {
+    cursor: pointer;
   }
   ::selection {
     background: var(--signal);

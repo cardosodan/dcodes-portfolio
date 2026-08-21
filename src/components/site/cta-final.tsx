@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight } from "@phosphor-icons/react";
 
 import { GlowButton } from "@/components/unlumen-ui/glow";
 import { CopyButton } from "@/components/unlumen-ui/copy";
@@ -25,9 +25,11 @@ export function CtaFinal() {
         </p>
 
         <div className="mt-2 flex flex-wrap items-center justify-center gap-4">
+          {/* mode="static": o glow em loop fica reservado pro CTA do hero —
+              repetir animação contínua em todo CTA da página vira ruído. */}
           <GlowButton
             colors={LIME}
-            mode="breathe"
+            mode="static"
             size="lg"
             className="h-12 gap-2 rounded-full bg-primary px-7 text-base text-primary-foreground hover:bg-primary/90"
             onClick={() =>
@@ -38,7 +40,7 @@ export function CtaFinal() {
             }
           >
             Falar no WhatsApp
-            <ArrowRight className="size-4" />
+            <ArrowRight weight="bold" className="size-4" />
           </GlowButton>
 
           <div className="inline-flex items-center gap-1.5 rounded-full border border-line py-1.5 pl-4 pr-1.5 font-mono text-sm">

@@ -1,4 +1,4 @@
-import { Check } from "lucide-react";
+import { Check } from "@phosphor-icons/react";
 
 import {
   Tabs,
@@ -7,6 +7,7 @@ import {
   TabsContents,
   TabsContent,
 } from "@/components/unlumen-ui/primitives/tabs";
+import { Eyebrow } from "@/components/site/eyebrow";
 import { TextReveal } from "@/components/unlumen-ui/text-reveal";
 import { SERVICES } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
@@ -37,7 +38,7 @@ function SchematicPreview({ serviceId }: { serviceId: string }) {
             <span className="font-mono text-[11px] text-muted-foreground">
               &lt;{region}/&gt;
             </span>
-            <span className="font-mono text-[10px] text-primary/70">
+            <span className="font-mono text-[10px] text-signal">
               {String(i + 1).padStart(2, "0")}
             </span>
           </div>
@@ -52,9 +53,9 @@ export function Services() {
     <section id="servicos" className="scroll-mt-24 py-24 sm:py-32">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="mb-14 max-w-2xl">
-          <p className="mb-3 font-mono text-xs uppercase tracking-widest text-primary">
+          <Eyebrow className="mb-3">
             O que fazemos
-          </p>
+          </Eyebrow>
           <TextReveal
             as="h2"
             text="Um site pra cada momento do seu negócio"
@@ -73,12 +74,12 @@ export function Services() {
                 key={service.id}
                 value={service.id}
                 className={cn(
-                  "flex shrink-0 flex-col items-start gap-1 rounded-lg border border-transparent px-4 py-3 text-left transition-colors lg:shrink",
+                  "flex shrink-0 cursor-pointer flex-col items-start gap-1 rounded-lg border border-transparent px-4 py-3 text-left transition-colors lg:shrink",
                   "data-[state=inactive]:hover:border-line data-[state=inactive]:hover:bg-card/60",
                   "data-[state=active]:border-line data-[state=active]:bg-card",
                 )}
               >
-                <span className="font-mono text-[10px] uppercase tracking-wider text-primary">
+                <span className="font-mono text-[10px] uppercase tracking-wider text-signal">
                   {service.tag}
                 </span>
                 <span className="font-display font-semibold">
@@ -106,14 +107,14 @@ export function Services() {
                           key={bullet}
                           className="flex items-start gap-2 text-sm"
                         >
-                          <Check className="mt-0.5 size-4 shrink-0 text-primary" />
+                          <Check weight="bold" className="mt-0.5 size-4 shrink-0 text-signal" />
                           {bullet}
                         </li>
                       ))}
                     </ul>
                     <a
                       href="#contato"
-                      className="mt-auto inline-flex w-fit items-center gap-1 text-sm font-medium text-primary underline-offset-4 hover:underline"
+                      className="mt-auto inline-flex w-fit items-center gap-1 text-sm font-medium text-signal underline-offset-4 hover:underline"
                     >
                       Falar sobre esse serviço →
                     </a>

@@ -1,6 +1,8 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight } from "@phosphor-icons/react";
 import { motion } from "motion/react";
 
+import { LogoLoop } from "@/components/react-bits/LogoLoop";
+import ClickSpark from "@/components/react-bits/ClickSpark";
 import { ScrambleText } from "@/components/unlumen-ui/scramble-text";
 import { TextReveal } from "@/components/unlumen-ui/text-reveal";
 import { GlowButton } from "@/components/unlumen-ui/glow";
@@ -38,6 +40,22 @@ function HeroGlow() {
     </div>
   );
 }
+
+const SEGMENTS = [
+  "VAREJO",
+  "SAÚDE",
+  "EDUCAÇÃO",
+  "SERVIÇOS",
+  "INDÚSTRIA",
+  "STARTUPS",
+].map((label) => ({
+  node: (
+    <span className="rounded-full border border-line px-3 py-1 font-mono text-xs tracking-wider text-muted-foreground">
+      {label}
+    </span>
+  ),
+  ariaLabel: label,
+}));
 
 const ANNOTATIONS = [
   { label: "font: Sora / 800", className: "left-[2%] top-[14%]" },
@@ -95,7 +113,7 @@ export function Hero() {
           <h1 className="font-display text-[12vw] font-bold leading-[0.95] tracking-tight sm:text-6xl lg:text-[5.2rem]">
             <ScrambleText text="Sites que fazem seu negócio" />
             <br />
-            <span className="text-primary">
+            <span className="text-signal">
               <ScrambleText text="vender de verdade." delay={550} />
             </span>
           </h1>
@@ -108,31 +126,33 @@ export function Hero() {
           />
 
           <div className="flex flex-wrap items-center gap-x-8 gap-y-4 pt-2">
-            <GlowButton
-              colors={LIME}
-              mode="breathe"
-              blur="strong"
-              size="lg"
-              className="h-12 gap-2 rounded-full bg-primary px-7 text-base text-primary-foreground hover:bg-primary/90"
-              onClick={() =>
-                window.open(
-                  CONTACT.whatsappUrl(
-                    "Olá, vim pelo site e quero um orçamento.",
-                  ),
-                  "_blank",
-                )
-              }
-            >
-              Peça seu orçamento
-              <ArrowRight className="size-4" />
-            </GlowButton>
+            <ClickSpark sparkColor="#CBFF3D" sparkCount={10} sparkRadius={22} className="inline-block">
+              <GlowButton
+                colors={LIME}
+                mode="breathe"
+                blur="strong"
+                size="lg"
+                className="h-12 gap-2 rounded-full bg-primary px-7 text-base text-primary-foreground hover:bg-primary/90"
+                onClick={() =>
+                  window.open(
+                    CONTACT.whatsappUrl(
+                      "Olá, vim pelo site e quero um orçamento.",
+                    ),
+                    "_blank",
+                  )
+                }
+              >
+                Peça seu orçamento
+                <ArrowRight weight="bold" className="size-4" />
+              </GlowButton>
+            </ClickSpark>
 
             <a
               href="#portfolio"
               className="group inline-flex items-center gap-1.5 text-sm font-medium text-foreground/80 underline decoration-line underline-offset-4 transition-colors hover:text-foreground hover:decoration-primary"
             >
               Ver portfólio
-              <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
+              <ArrowRight weight="bold" className="size-3.5 transition-transform group-hover:translate-x-0.5" />
             </a>
           </div>
 
@@ -142,6 +162,22 @@ export function Hero() {
         </div>
 
         <div className="col-span-4 hidden lg:block" aria-hidden="true" />
+      </div>
+
+      {/* Segmentos atendidos — faixa em loop infinito (marquee), não a
+          lista estática de antes. */}
+      <div className="relative mt-6 border-t border-line py-5">
+        <p className="mb-3 text-center font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
+          Negócios de vários segmentos já confiam na DCodes
+        </p>
+        <LogoLoop
+          logos={SEGMENTS}
+          speed={40}
+          gap={16}
+          fadeOut
+          fadeOutColor="var(--background)"
+          ariaLabel="Segmentos atendidos"
+        />
       </div>
 
       {/* Ticker de números — faixa fina embutida no rodapé do hero, não uma
@@ -179,6 +215,7 @@ export function Hero() {
             cellSize={10}
             cellGap={3}
             showAccount={false}
+            ambientEffect="none"
             className="opacity-70 transition-opacity hover:opacity-100"
           />
         </div>

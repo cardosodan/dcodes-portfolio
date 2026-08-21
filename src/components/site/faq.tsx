@@ -1,3 +1,4 @@
+import { Eyebrow } from "@/components/site/eyebrow";
 import { MotionAccordion } from "@/components/unlumen-ui/motion-faqs-accordion";
 import { TextReveal } from "@/components/unlumen-ui/text-reveal";
 import { FAQ_ITEMS } from "@/lib/site-data";
@@ -10,9 +11,9 @@ export function Faq() {
     >
       <div className="mx-auto max-w-3xl px-4 sm:px-6">
         <div className="mb-10 max-w-2xl">
-          <p className="mb-3 font-mono text-xs uppercase tracking-widest text-primary">
+          <Eyebrow className="mb-3">
             Dúvidas frequentes
-          </p>
+          </Eyebrow>
           <TextReveal
             as="h2"
             text="Perguntas frequentes"

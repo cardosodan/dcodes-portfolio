@@ -1,3 +1,4 @@
+import Noise from "@/components/react-bits/Noise";
 import { SiteNav } from "@/components/site/nav";
 import { Hero } from "@/components/site/hero";
 import { Services } from "@/components/site/services";
@@ -18,6 +19,11 @@ function App() {
       >
         Pular para o conteúdo
       </a>
+
+      {/* Grão sutil sitewide (uiverse/Animista-style texture, via ReactBits) —
+          refresh bem espaçado pra não ficar redesenhando o canvas 30x/s à
+          toa: reforça a superfície "material" sem custo de CPU perceptível. */}
+      <Noise patternAlpha={8} patternRefreshInterval={12} />
 
       <SiteNav />
 

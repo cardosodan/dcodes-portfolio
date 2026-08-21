@@ -2,6 +2,8 @@ import { SideBySideSlide } from "@/components/unlumen-ui/side-by-side-slide";
 import { TooltipPreview } from "@/components/unlumen-ui/tooltip-preview";
 import { TiltCard } from "@/components/unlumen-ui/tilt-card";
 import { TextReveal } from "@/components/unlumen-ui/text-reveal";
+import { Eyebrow } from "@/components/site/eyebrow";
+import { ViewfinderCorners } from "@/components/site/viewfinder-corners";
 import { PORTFOLIO_SECONDARY } from "@/lib/site-data";
 
 export function Portfolio() {
@@ -9,9 +11,9 @@ export function Portfolio() {
     <section id="portfolio" className="scroll-mt-24 py-24 sm:py-32">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="mb-14 max-w-2xl">
-          <p className="mb-3 font-mono text-xs uppercase tracking-widest text-primary">
+          <Eyebrow className="mb-3">
             Portfólio
-          </p>
+          </Eyebrow>
           <TextReveal
             as="h2"
             text="Do wireframe ao site no ar"
@@ -26,7 +28,8 @@ export function Portfolio() {
 
         {/* Case em destaque — sem grid uniforme: um card grande com
             comparação antes/depois real do processo de construção. */}
-        <div className="mb-10 overflow-hidden rounded-xl border border-line bg-card">
+        <div className="group relative mb-10 overflow-hidden rounded-xl border border-line bg-card">
+          <ViewfinderCorners />
           <SideBySideSlide
             beforeImage="/images/wireframe-amazonvisto.svg"
             afterImage="/images/portfolio-amazonvisto.jpg"
@@ -63,23 +66,24 @@ export function Portfolio() {
             mockups de navegador clonados. */}
         <div className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-2 sm:gap-5 sm:overflow-visible sm:px-0 lg:grid-cols-3">
           {PORTFOLIO_SECONDARY.map((item) => (
-            <TiltCard
+            <div
               key={item.title}
-              title={item.title}
-              description={item.category}
-              className="w-72 shrink-0 snap-start sm:w-auto"
+              className="group relative w-72 shrink-0 snap-start sm:w-auto"
             >
-              <div className="flex flex-wrap gap-1.5">
-                {item.stack.map((tech) => (
-                  <span
-                    key={tech}
-                    className="rounded-full border border-line px-2 py-0.5 font-mono text-[10px] text-muted-foreground"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </TiltCard>
+              <ViewfinderCorners />
+              <TiltCard title={item.title} description={item.category}>
+                <div className="flex flex-wrap gap-1.5">
+                  {item.stack.map((tech) => (
+                    <span
+                      key={tech}
+                      className="rounded-full border border-line px-2 py-0.5 font-mono text-[10px] text-muted-foreground"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </TiltCard>
+            </div>
           ))}
         </div>
       </div>

@@ -1,13 +1,13 @@
 import {
-  Home,
-  Layers,
-  Workflow,
+  House,
+  Stack,
+  FlowArrow,
   Briefcase,
   Tag,
-  HelpCircle,
-  MessageCircle,
-  Mail,
-} from "lucide-react";
+  Question,
+  WhatsappLogo,
+  EnvelopeSimple,
+} from "@phosphor-icons/react";
 
 import { Dock, type DockItem } from "@/components/unlumen-ui/dock";
 import { ThemeSwitch } from "@/components/unlumen-ui/theme-switch";
@@ -19,13 +19,17 @@ const WHATSAPP_HREF = CONTACT.whatsappUrl(
 );
 
 const DOCK_ITEMS: DockItem[] = [
-  { icon: <Home />, label: "Início", href: "#inicio" },
-  { icon: <Layers />, label: "Serviços", href: "#servicos" },
-  { icon: <Workflow />, label: "Processo", href: "#processo" },
-  { icon: <Briefcase />, label: "Portfólio", href: "#portfolio" },
-  { icon: <Tag />, label: "Planos", href: "#planos" },
-  { icon: <HelpCircle />, label: "FAQ", href: "#faq", separator: true },
-  { icon: <MessageCircle />, label: "Falar no WhatsApp", href: WHATSAPP_HREF },
+  { icon: <House weight="bold" />, label: "Início", href: "#inicio" },
+  { icon: <Stack weight="bold" />, label: "Serviços", href: "#servicos" },
+  { icon: <FlowArrow weight="bold" />, label: "Processo", href: "#processo" },
+  { icon: <Briefcase weight="bold" />, label: "Portfólio", href: "#portfolio" },
+  { icon: <Tag weight="bold" />, label: "Planos", href: "#planos" },
+  { icon: <Question weight="bold" />, label: "FAQ", href: "#faq", separator: true },
+  {
+    icon: <WhatsappLogo weight="bold" />,
+    label: "Falar no WhatsApp",
+    href: WHATSAPP_HREF,
+  },
 ];
 
 export function SiteNav() {
@@ -43,7 +47,7 @@ export function SiteNav() {
             {"</>"}
           </span>
           <span className="hidden sm:inline">
-            D<span className="text-primary">Codes</span>
+            D<span className="text-signal">Codes</span>
           </span>
         </a>
 
@@ -63,12 +67,12 @@ export function SiteNav() {
                   items: [
                     {
                       label: "Falar no WhatsApp",
-                      icon: MessageCircle,
+                      icon: WhatsappLogo,
                       href: WHATSAPP_HREF,
                     },
                     {
                       label: `Copiar e-mail (${CONTACT.email})`,
-                      icon: Mail,
+                      icon: EnvelopeSimple,
                       action: () =>
                         navigator.clipboard.writeText(CONTACT.email),
                     },
